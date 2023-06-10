@@ -1,8 +1,9 @@
 class Glass:
+    initial_content = 0
     capacity = 250
 
     def __init__(self):
-        self.content = 0
+        self.content = self.initial_content
 
     def fill(self, ml: int) -> str:
         if self.content + ml <= self.capacity:
