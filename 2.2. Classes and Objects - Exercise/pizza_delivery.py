@@ -1,8 +1,5 @@
-from typing import Dict
-
-
 class PizzaDelivery:
-    def __init__(self, name: str, price: float, ingredients: Dict):
+    def __init__(self, name, price, ingredients: dict):
         self.name = name
         self.price = price
         self.ingredients = ingredients
@@ -12,12 +9,12 @@ class PizzaDelivery:
         if self.ordered:
             return f"Pizza {self.name} already prepared, and we can't make any changes!"
 
-        if ingredient in self.ingredients.keys():
-            self.ingredients[ingredient] += quantity
-            self.price += quantity * price_per_quantity
-        elif ingredient not in self.ingredients.keys():
+        if ingredient not in self.ingredients.keys():
             self.ingredients[ingredient] = quantity
-            self.price += quantity * price_per_quantity
+        else:
+            self.ingredients[ingredient] += quantity
+
+        self.price += quantity * price_per_quantity
 
     def remove_ingredient(self, ingredient: str, quantity: int, price_per_quantity: float):
         if self.ordered:
@@ -25,15 +22,16 @@ class PizzaDelivery:
 
         if ingredient not in self.ingredients.keys():
             return f"Wrong ingredient selected! We do not use {ingredient} in {self.name}!"
-        elif ingredient in self.ingredients.keys() and quantity > self.ingredients[ingredient]:
+        elif quantity > self.ingredients[ingredient]:
             return f"Please check again the desired quantity of {ingredient}!"
-        else:
-            self.ingredients[ingredient] -= quantity
-            self.price -= quantity * price_per_quantity
+
+        self.ingredients[ingredient] -= quantity
+        self.price -= price_per_quantity * quantity
 
     def make_order(self):
-        self.ordered = True
+        self.ordered = not self.ordered
         final_ingredients = ""
+
         for key, value in self.ingredients.items():
             final_ingredients += f"{key}: {value}, "
         return f"You've ordered pizza {self.name} prepared with {final_ingredients.rstrip(', ')} " \
