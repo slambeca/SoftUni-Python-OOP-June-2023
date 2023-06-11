@@ -16,7 +16,7 @@ class Vet:
         return f"{animal_name} registered in the clinic"
 
     def unregister_animal(self, animal_name):
-        if animal_name not in Vet.animals:
+        if animal_name not in self.animals:
             return f"{animal_name} not in the clinic"
 
         Vet.animals.remove(animal_name)
