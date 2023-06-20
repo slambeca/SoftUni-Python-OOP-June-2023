@@ -10,12 +10,12 @@ class Shop:
         return cls(name, type, 10)
 
     def add_item(self, item_name):
-        if item_name not in self.items.keys():
-            self.items[item_name] = 0
-        if sum(self.items.values()) == self.capacity:
-            return "Not enough capacity in the shop"
-        self.items[item_name] += 1
-        return f"{item_name} added to the shop"
+        if self.capacity > sum(self.items.values()):
+            if item_name not in self.items.keys():
+                self.items[item_name] = 0
+            self.items[item_name] += 1
+            return f"{item_name} added to the shop"
+        return "Not enough capacity in the shop"
 
     def remove_item(self, item_name, amount):
         if item_name not in self.items.keys() or amount > self.items[item_name]:
