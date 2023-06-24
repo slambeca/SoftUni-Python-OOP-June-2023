@@ -11,6 +11,10 @@ class Section:
         return f"Task {task.details()} is added to the section"
 
     def complete_task(self, task_name):
+        # try:
+        #     task = next(filter(lambda t: t.name == task.name, self.tasks))
+        # except:
+        #    return f"Could not find task with the name {task_name}"
         for task in self.tasks:
             if task.name == task_name:
                 task.completed = True
