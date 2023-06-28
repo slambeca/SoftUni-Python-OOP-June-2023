@@ -22,11 +22,7 @@ class ChefRobot(Robot):
 class WarRobot(Robot):
     @staticmethod
     def sensors_amount():
-        return 12
-
-
-def print_number_of_robot_sensors(robot):
-    print(robot.sensors_amount())
+        return 1
 
 
 basic_robot = Robot('Robo')
@@ -34,7 +30,7 @@ da_vinci = MedicalRobot('Da Vinci')
 moley = ChefRobot('Moley')
 griffin = WarRobot('Griffin')
 
-print_number_of_robot_sensors(basic_robot)
-print_number_of_robot_sensors(da_vinci)
-print_number_of_robot_sensors(moley)
-print_number_of_robot_sensors(griffin)
+print(basic_robot.sensors_amount())
+print(da_vinci.sensors_amount())
+print(moley.sensors_amount())
+print(griffin.sensors_amount())
