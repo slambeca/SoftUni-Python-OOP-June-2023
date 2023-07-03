@@ -8,3 +8,14 @@ def genrange(start, end):
 
 
 print(list(genrange(1, 10)))
+
+
+# Variant 2
+
+
+# def genrange(start, end):
+#     for num in range(start, end + 1):
+#         yield num
+# 
+# 
+# print(list(genrange(1, 10)))
