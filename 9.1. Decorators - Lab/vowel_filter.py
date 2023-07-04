@@ -3,12 +3,12 @@ def vowel_filter(func_ref):
 
     def wrapper():
         result = func_ref()
-        return [x for x in result if x in vowels]
+        return [x for x in result if x.lower() in vowels]
 
     return wrapper
 
 
-@vowel_filter
+@vowel_filter    # Decorators are functions that change the behavior of a function
 def get_letters():
     return ["a", "b", "c", "d", "e"]
 
