@@ -1,27 +1,27 @@
 class ShoppingCart:
-    def __init__(self, shop_name: str, budget: float):    # Done
+    def __init__(self, shop_name: str, budget: float):
         self.shop_name = shop_name
         self.budget = budget
         self.products = {}
 
     @property
-    def shop_name(self):    # No need to check this one
+    def shop_name(self):
         return self.__shop_name
 
     @shop_name.setter
-    def shop_name(self, value: str):    # Done
+    def shop_name(self, value: str):
         if not value[0].isupper() or not value.isalpha():
             raise ValueError("Shop must contain only letters and must start with capital letter!")
         self.__shop_name = value
 
     def add_to_cart(self, product_name: str, product_price: float):
-        if product_price >= 100.0:    # Done
+        if product_price >= 100.0:
             raise ValueError(f"Product {product_name} cost too much!")
-        self.products[product_name] = product_price    # Done
+        self.products[product_name] = product_price
         return f"{product_name} product was successfully added to the cart!"
 
     def remove_from_cart(self, product_name: str):
-        if product_name in self.products:    # Done
+        if product_name in self.products:
             del self.products[product_name]
             return f"Product {product_name} was successfully removed from the cart!"
         else:    # Done
