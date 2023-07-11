@@ -1,5 +1,5 @@
 class ToyStore:
-    def __init__(self):    # Done
+    def __init__(self):
         self.toy_shelf = {
             "A": None,
             "B": None,
