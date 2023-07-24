@@ -37,10 +37,9 @@ class SpaceStation:
             return f"{name} is already added."
 
         new_planet = Planet(name)
+        new_planet.items = items.split(", ")
         self.planet_repository.add(new_planet)
-        splitted_items = items.split(", ")
-        for item in splitted_items:
-            new_planet.items.append(item)
+
         return f"Successfully added Planet: {name}."
 
     def retire_astronaut(self, name):
@@ -70,7 +69,7 @@ class SpaceStation:
 
         astronauts_participated = 0
         for astronaut in suitable_astronauts[:5]:
-            for item in reversed(planet.items):
+            for item in planet.items[::-1]:
                 if astronaut.oxygen <= 0:
                     break
                 astronaut.breathe()
@@ -99,7 +98,9 @@ class SpaceStation:
         for astronaut in self.astronaut_repository.astronauts:
             backpack_items = astronaut.backpack
             if not backpack_items:
-                backpack_items = "none"
+                astronauts_info += f"Name: {astronaut.name}\nOxygen: {astronaut.oxygen}\n" \
+                                   f"Backpack items: none\n"
+                continue
             astronauts_info += f"Name: {astronaut.name}\nOxygen: {astronaut.oxygen}\n" \
                                f"Backpack items: {', '.join(backpack_items)}\n"
 
