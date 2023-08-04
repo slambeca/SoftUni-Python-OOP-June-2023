@@ -143,7 +143,7 @@ class MovieApp:
 #         if not user:
 #             raise Exception("This user does not exist!")
 
-#         if movie.owner.username != user.username:
+#         if movie.owner.username != username:
 #             raise Exception(f"{username} is not the owner of the movie {movie.title}!")
 
 #         if movie in self.movies_collection:
@@ -154,9 +154,7 @@ class MovieApp:
 #         return f"{username} successfully added {movie.title} movie."
 
 #     def edit_movie(self, username, movie: Movie, **kwargs):
-#         user = self.__find_user_by_username(username)
-
-#         if movie.owner.username != user.username:
+#         if movie.owner.username != username:
 #             raise Exception(f"{username} is not the owner of the movie {movie.title}!")
 
 #         if movie not in self.movies_collection:
@@ -170,7 +168,7 @@ class MovieApp:
 #     def delete_movie(self, username, movie: Movie):
 #         user = self.__find_user_by_username(username)
 
-#         if movie.owner.username != user.username:
+#         if movie.owner.username != username:
 #             raise Exception(f"{username} is not the owner of the movie {movie.title}!")
 
 #         if movie not in self.movies_collection:
@@ -183,7 +181,7 @@ class MovieApp:
 #     def like_movie(self, username, movie: Movie):
 #         user = self.__find_user_by_username(username)
 
-#         if movie.owner.username == user.username:
+#         if movie.owner.username == username:
 #             raise Exception(f"{username} is the owner of the movie {movie.title}!")
 
 #         if movie in user.movies_liked:
