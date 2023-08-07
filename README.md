@@ -17,4 +17,5 @@ The Python OOP course will teach you the principles of object-oriented programmi
 * Working with decorators
 
 # Certificate and Course Cirriculum
+![Python OOP - June 2023 - Certificate](https://github.com/slambeca/SoftUni-Python-OOP-June-2023/assets/95913250/7c2685fa-4bb1-4d8a-b6eb-ea9f5de0e4aa)
 
